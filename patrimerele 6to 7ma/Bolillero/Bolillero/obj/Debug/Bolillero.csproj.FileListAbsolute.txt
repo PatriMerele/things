@@ -1,1 +1,3 @@
 D:\patrimerele 6to 7ma\Bolillero\Bolillero\bin\Debug\Bolillero.exe.config
+C:\Users\L21-PC09\Documents\GitHub\things\patrimerele 6to 7ma\Bolillero\Bolillero\bin\Debug\Bolillero.exe.config
+C:\Users\L21-PC09\Documents\GitHub\things\patrimerele 6to 7ma\Bolillero\Bolillero\obj\Debug\Bolillero.csprojResolveAssemblyReference.cache
