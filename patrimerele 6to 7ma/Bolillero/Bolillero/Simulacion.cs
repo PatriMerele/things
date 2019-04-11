@@ -21,17 +21,31 @@ namespace Bolillero
         }
         public long simularConHilos(List<byte> jugada, long cantSimulaciones, int cantHilos)
         {
-            List<Task<long>> hilos = new List<Task<long>>();
-            List<Task<long>> bolilleroo = new List<Task<long>>();
+            var hilos = new List<Task<long>>();
+            var bolilleros = new List<Bolilleroo>();
             long cantPorHilo = this.cantSimulaciones / (int)cantHilos;
-            for (int i = 0; i < cantHilos; i++)
-            {
-                Bolilleroo bolilleroClon = (Bolilleroo)bolillero.Clone();
-                var tarea = new Task<long>(() => bolilleroClon.jugar(jugada, cantSimulaciones));
-                hilos.Add(tarea);
-            }
+
+            crearHilos(jugada, cantSimulaciones, cantHilos, hilos, bolilleros);
+
+            hilos.ForEach(hilo => hilo.Start());
+
+            Task<long>.WaitAll(hilos.ToArray());
+
+            return hilos.Sum(task => task.Result);
 
         }
 
+        private void crearHilos(List<byte> jugada, long cantSimulaciones, int cantHilos, List<Task<long>> hilos, List<Bolilleroo> bolilleros)
+        {
+            for (int i = 0; i < cantHilos; i++)
+            {
+                var bolilleroClon = (Bolilleroo)bolillero.Clone();
+                bolilleros.Add(bolilleroClon);
+                var tarea = new Task<long>(() => bolilleroClon.jugar(jugada, cantSimulaciones));
+                hilos.Add(tarea);
+            }
+        }
+
+        
     }
 }
