@@ -1,0 +1,7 @@
+C:\Users\L21-PC09\Documents\GitHub\things\patrimerele 6to 7ma\Bolillero\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+C:\Users\L21-PC09\Documents\GitHub\things\patrimerele 6to 7ma\Bolillero\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
+C:\Users\L21-PC09\Documents\GitHub\things\patrimerele 6to 7ma\Bolillero\UnitTestProject1\bin\Debug\Bolillero.exe
+C:\Users\L21-PC09\Documents\GitHub\things\patrimerele 6to 7ma\Bolillero\UnitTestProject1\bin\Debug\Bolillero.pdb
+C:\Users\L21-PC09\Documents\GitHub\things\patrimerele 6to 7ma\Bolillero\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache
+C:\Users\L21-PC09\Documents\GitHub\things\patrimerele 6to 7ma\Bolillero\UnitTestProject1\obj\Debug\UnitTestProject1.dll
+C:\Users\L21-PC09\Documents\GitHub\things\patrimerele 6to 7ma\Bolillero\UnitTestProject1\obj\Debug\UnitTestProject1.pdb

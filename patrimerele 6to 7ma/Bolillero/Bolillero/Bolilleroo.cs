@@ -12,9 +12,20 @@ namespace Bolillero
         public List<byte> bolillasAfuera { get; set; }
         Random r;
 
-        public Bolilleroo()
+        public Bolilleroo(int cantBolillas)
         {
             r = new Random(DateTime.Now.Millisecond);
+            bolillasAdentro = new List<byte>();
+            bolillasAfuera = new List<byte>();
+            agregarBolillas(cantBolillas);
+        }
+
+        private void agregarBolillas(int nro)
+        {
+            for (byte i = 1; i <= nro; i++)
+            {
+                bolillasAdentro.Add(i);
+            }
         }
 
         private int indiceAlAzar()
@@ -62,7 +73,7 @@ namespace Bolillero
 
         public object Clone()
         {
-            Bolilleroo clon = new Bolilleroo();
+            Bolilleroo clon = new Bolilleroo(10);
             clon.bolillasAdentro = new List<byte>(this.bolillasAdentro);
             clon.bolillasAfuera = new List<byte>(this.bolillasAfuera);
             return clon;
