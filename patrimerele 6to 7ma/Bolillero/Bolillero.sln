@@ -5,6 +5,11 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bolillero", "Bolillero\Bolillero.csproj", "{226C39F7-EADE-46C4-9A50-89836DEA27A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{34B54472-A26B-40E3-AE49-4BEBAA509055}"
+	ProjectSection(ProjectDependencies) = postProject
+		{226C39F7-EADE-46C4-9A50-89836DEA27A5} = {226C39F7-EADE-46C4-9A50-89836DEA27A5}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{226C39F7-EADE-46C4-9A50-89836DEA27A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{226C39F7-EADE-46C4-9A50-89836DEA27A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{226C39F7-EADE-46C4-9A50-89836DEA27A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34B54472-A26B-40E3-AE49-4BEBAA509055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34B54472-A26B-40E3-AE49-4BEBAA509055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34B54472-A26B-40E3-AE49-4BEBAA509055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34B54472-A26B-40E3-AE49-4BEBAA509055}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
