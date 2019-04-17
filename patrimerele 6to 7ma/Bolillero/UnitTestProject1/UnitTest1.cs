@@ -27,9 +27,9 @@ namespace UnitTestProject1
 
             simulacion.bolillero = bolillero;
             //simulacion.simularSinHilos(jugada, 1000000);
-            simulacion.simularConHilos(jugada, 1000000, 4);
+            simulacion.simularConHilos(jugada, 4, 4);
 
-            Assert.AreEqual(1000000, (int)simulacion.cantAciertos);
+            Assert.AreEqual(3, (int)simulacion.cantAciertos, 10);
         }
     }
 }
