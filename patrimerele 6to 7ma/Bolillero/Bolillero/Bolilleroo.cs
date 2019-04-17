@@ -41,17 +41,18 @@ namespace Bolillero
         public void reingresarBolillas()
         {
             bolillasAdentro.AddRange(bolillasAfuera);
+            bolillasAfuera.Clear();
         }
         private void sacarBolilla(byte bolilla)
         {
-            bolillasAdentro.Remove(sacarBolilla());
-            bolillasAfuera.Add(sacarBolilla());
+            bolillasAdentro.Remove(bolilla);
+            bolillasAfuera.Add(bolilla);
         }
         public bool jugar(List<byte> jugada)
         {
             for (byte i = 0; i < jugada.Count; i++)
             {
-                if (jugada[i] == this.sacarBolilla())
+                if (jugada[i] != this.sacarBolilla())
                     return false;
             }
             return true;
@@ -62,11 +63,11 @@ namespace Bolillero
 
             for(long i = 0; i < cantSimulaciones; i++)
             {
+                reingresarBolillas();
                 if(jugar(jugada))
                 {
                     cont++;
-                }
-                reingresarBolillas();
+                }                
             }
             return cont; 
         }

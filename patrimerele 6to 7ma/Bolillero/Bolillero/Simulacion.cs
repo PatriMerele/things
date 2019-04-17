@@ -10,14 +10,15 @@ namespace Bolillero
     {
         public Bolilleroo bolillero { get; set; }
         public long cantSimulaciones { get; set; }
+        public long cantAciertos { get; private set; }
         public Simulacion()
         {
 
         }
 
-        public long simularSinHilos(List<byte> jugada, long cantSimulaciones)
+        public void simularSinHilos(List<byte> jugada, long cantSimulaciones)
         {
-            return bolillero.jugar(jugada, cantSimulaciones);
+            cantAciertos = bolillero.jugar(jugada, cantSimulaciones);
         }
         public long simularConHilos(List<byte> jugada, long cantSimulaciones, int cantHilos)
         {
@@ -32,7 +33,6 @@ namespace Bolillero
             Task<long>.WaitAll(hilos.ToArray());
 
             return hilos.Sum(task => task.Result);
-
         }
 
         private void crearHilos(List<byte> jugada, long cantSimulaciones, int cantHilos, List<Task<long>> hilos, List<Bolilleroo> bolilleros)
