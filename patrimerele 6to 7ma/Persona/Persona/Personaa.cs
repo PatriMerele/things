@@ -9,13 +9,22 @@ using System.ComponentModel.DataAnnotations;
 namespace Persona
 {
     [Table ("Persona")]
-    public class Persona
+    public class Personaa
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Column("dni")]
-        [Key]
+        [Key, Column("dni")]
         public int Dni { get; set; }
 
+        [Column("nombre"), StringLength(45)]
+        public string Nombre { get; set; }
 
+        [Column("apellido"), StringLength(45)]
+        public string Apellido { get; set; }
+
+        public Personaa(string nombre, string apellido)
+        {
+            Nombre = nombre;
+            Apellido = apellido;
+        }
     }
 }
