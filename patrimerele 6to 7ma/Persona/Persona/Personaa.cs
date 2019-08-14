@@ -21,10 +21,9 @@ namespace Persona
         [Column("apellido"), StringLength(45)]
         public string Apellido { get; set; }
 
-        public Personaa(string nombre, string apellido)
-        {
-            Nombre = nombre;
-            Apellido = apellido;
-        }
+        [ForeignKey("idDomicilio")]
+        public Domicilio Domicilio { get; set; }
+
+        public Personaa(){}
     }
 }
