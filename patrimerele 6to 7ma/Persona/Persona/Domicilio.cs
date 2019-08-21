@@ -13,10 +13,10 @@ namespace Persona
         [Key, Column("idDomicilio")]
         public byte IdDomicilio { get; set; }
 
-        [Column("calle"), StringLength(45)]
+        [Column("calle"), StringLength(45), Required]
         public string Calle { get; set; }
 
-        [Column("altura")]
+        [Column("altura"), Required]
         public short Altura { get; set; }
     }
 }

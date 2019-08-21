@@ -21,7 +21,7 @@ namespace Persona
         [Column("apellido"), StringLength(45)]
         public string Apellido { get; set; }
 
-        [ForeignKey("idDomicilio")]
+        [ForeignKey("idDomicilio"), Required]
         public Domicilio Domicilio { get; set; }
 
         public Personaa(){}
