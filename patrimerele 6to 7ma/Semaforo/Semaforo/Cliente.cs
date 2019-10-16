@@ -20,9 +20,9 @@ namespace Semaforo
         {
             bebidas.Enqueue(bebida);
         }
-        private bool alcanzaParaBebida(Bebida bebida)
+        private bool alcanzaParaBebida()
         {
-            if (bebida.precio <= dinero)
+            if (getBebida().precio <= dinero)
             {
                 return false;
             }
@@ -30,22 +30,10 @@ namespace Semaforo
         }
         public void tomarBebida(Bebida bebida)
         {
-            alcanzaParaBebida(bebida);
-            
+            pagar(getBebida());
             bebidas.Dequeue();
-            DineroTotal(bebida);
         }
-        public void DineroTotal(Bebida bebida)
-        {
-            dinero -= bebida.precio;
-        }
-        public void stockBebida(Bebida bebida)
-        {
-            bebida.stock
-        }
-        public void getBebida()
-        {
-            bebidas.Peek();
-        }
+        public void pagar(Bebida bebida) => dinero -= bebida.precio;
+        public Bebida getBebida() => bebidas.Peek();
     }
 }
