@@ -12,10 +12,8 @@ namespace Semaforo
         public string nombre { get; set; }
         public int tiempoBebidaMS { get; set; }
 
-        public Cliente()
-        {
+        public Cliente() {}
 
-        }
         public void agregarBebida(Bebida bebida)
         {
             bebidas.Enqueue(bebida);
@@ -28,12 +26,16 @@ namespace Semaforo
             }
             return true;
         }
-        public void tomarBebida(Bebida bebida)
+        public void tomarBebida()
         {
             pagar(getBebida());
             bebidas.Dequeue();
         }
         public void pagar(Bebida bebida) => dinero -= bebida.precio;
+        public void quedanBebidasParaTomar()
+        {
+
+        }
         public Bebida getBebida() => bebidas.Peek();
     }
 }
