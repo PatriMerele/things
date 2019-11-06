@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Semaforo
 {
@@ -13,10 +14,24 @@ namespace Semaforo
 
         public Barra() {}
 
-        public void clienteEntraBarra(Cliente cliente)
+        public void clienteEnBarra(Cliente cliente)
         {
-            clientes.Enqueue(cliente);
+            do
+            {
+                if (!stockBebidaPara(cliente))
+                {
+                    Console.WriteLine("No posee la bebida deseada");
+                    break;
+                }
+                if (!cliente.alcanzaParaBebida())
+                {
+                    Console.WriteLine("No posee la plata necesaria");
+                    break;
+                }
+                Console.WriteLine($"{cliente.nombre} se compro {cliente.getBebida().nombre}");
+                Thread.Sleep(cliente.tiempoBebidaMS);
+            } while (cliente.quedanBebidasParaTomar);
         }
-
+        public bool stockBebidaPara(Cliente cliente) => cliente.getBebida().stock > 0;
     }
 }

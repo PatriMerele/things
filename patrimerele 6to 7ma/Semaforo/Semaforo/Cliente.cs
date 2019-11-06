@@ -6,19 +6,19 @@ namespace Semaforo
 {
     public class Cliente
     {
-        public Queue<Bebida> bebidas { get; set; }
+        public Queue<Bebida> bebidasDeseadas { get; set; }
         public int cantidad { get; set; }
         public int dinero { get; set; }
         public string nombre { get; set; }
         public int tiempoBebidaMS { get; set; }
 
-        public Cliente() {}
+        public Cliente() { }
 
         public void agregarBebida(Bebida bebida)
         {
-            bebidas.Enqueue(bebida);
+            bebidasDeseadas.Enqueue(bebida);
         }
-        private bool alcanzaParaBebida()
+        public bool alcanzaParaBebida()
         {
             if (getBebida().precio <= dinero)
             {
@@ -29,13 +29,10 @@ namespace Semaforo
         public void tomarBebida()
         {
             pagar(getBebida());
-            bebidas.Dequeue();
+            bebidasDeseadas.Dequeue();
         }
         public void pagar(Bebida bebida) => dinero -= bebida.precio;
-        public void quedanBebidasParaTomar()
-        {
-
-        }
-        public Bebida getBebida() => bebidas.Peek();
+        public bool quedanBebidasParaTomar => bebidasDeseadas.Count != 0;
+        public Bebida getBebida() => bebidasDeseadas.Peek();
     }
 }

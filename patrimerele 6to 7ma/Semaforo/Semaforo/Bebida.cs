@@ -7,9 +7,6 @@
         public int precio { get; set; }
         public int stock { get; set; }
 
-        public Bebida()
-        {
-
-        }
+        public Bebida() {}
     }
 }
