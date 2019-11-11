@@ -29,6 +29,8 @@ namespace Semaforo
                     break;
                 }
                 Console.WriteLine($"{cliente.nombre} se compro {cliente.getBebida().nombre}");
+                cliente.getBebida().decrementarStock();
+                cliente.tomarBebida();
                 Thread.Sleep(cliente.tiempoBebidaMS);
             } while (cliente.quedanBebidasParaTomar);
         }
