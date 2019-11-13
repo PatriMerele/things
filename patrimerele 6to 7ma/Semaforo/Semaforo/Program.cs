@@ -8,12 +8,42 @@ namespace Semaforo
     {
         static void Main(string[] args)
         {
+            Bebida fernet = new Bebida()
+            {
+                nombre = "Fernet",
+                precio = 110,
+                stock = 40
+            };
+            Bebida ronConCola = new Bebida()
+            {
+                nombre = "Ron con Cola",
+                precio = 100,
+                stock = 50
+            };
+            Bebida pinta = new Bebida()
+            {
+                nombre = "Pinta de cerveza artesanal",
+                precio = 120,
+                stock = 100
+            };
+            Bebida daikiri = new Bebida()
+            {
+                nombre = "Daikiri",
+                precio = 120,
+                stock = 50
+            };
+
             Cliente beto = new Cliente()
             {
                 nombre = "Beto",
                 dinero = 500,
                 tiempoBebidaMS = 1500
             };
+            beto.agregarBebida(pinta);
+            beto.agregarBebida(pinta);
+            beto.agregarBebida(pinta);
+            beto.agregarBebida(pinta);
+            beto.agregarBebida(pinta);
 
             Cliente guido = new Cliente()
             {
@@ -21,6 +51,8 @@ namespace Semaforo
                 dinero = 800,
                 tiempoBebidaMS = 5000
             };
+            guido.agregarBebida(daikiri);
+            guido.agregarBebida(daikiri);
 
             Cliente adolfo = new Cliente()
             {
@@ -28,6 +60,9 @@ namespace Semaforo
                 dinero = 200,
                 tiempoBebidaMS = 3500
             };
+            adolfo.agregarBebida(fernet);
+            adolfo.agregarBebida(ronConCola);
+            adolfo.agregarBebida(pinta);
 
             Cliente ivan = new Cliente()
             {
@@ -35,6 +70,9 @@ namespace Semaforo
                 dinero = 500,
                 tiempoBebidaMS = 2000
             };
+            ivan.agregarBebida(pinta);
+            ivan.agregarBebida(pinta);
+            ivan.agregarBebida(pinta);
 
             Cliente jessica = new Cliente()
             {
@@ -42,7 +80,16 @@ namespace Semaforo
                 dinero = 300,
                 tiempoBebidaMS = 4500
             };
-
+            jessica.agregarBebida(pinta);
+            jessica.agregarBebida(pinta);
+            jessica.agregarBebida(pinta);
+            jessica.agregarBebida(pinta);
+            jessica.agregarBebida(pinta);
+            jessica.agregarBebida(pinta);
+            jessica.agregarBebida(pinta);
+            jessica.agregarBebida(pinta);
+            jessica.agregarBebida(pinta);
+            jessica.agregarBebida(pinta);
 
         }
     }

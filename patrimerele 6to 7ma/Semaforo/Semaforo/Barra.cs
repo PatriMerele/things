@@ -7,7 +7,9 @@ namespace Semaforo
 {
     public class Barra
     {
-        public int capacidad { get; set; }
+        const int capacidad = 2;
+        const int cantHilos = 5;
+        private static Semaphore semaforo = new Semaphore(0, capacidad);
         public int cantPersonas { get; set; }
         public Queue<Cliente> clientes { get; set; }
         public List<Bebida> conjuntoBebidas { get; set; }
@@ -33,7 +35,10 @@ namespace Semaforo
                 cliente.tomarBebida();
                 Thread.Sleep(cliente.tiempoBebidaMS);
             } while (cliente.quedanBebidasParaTomar);
+            Console.WriteLine("Se fue del bar");
+            semaforo.Release();
         }
+
         public bool stockBebidaPara(Cliente cliente) => cliente.getBebida().stock > 0;
     }
 }
