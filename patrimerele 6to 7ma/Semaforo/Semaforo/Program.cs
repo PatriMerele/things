@@ -91,6 +91,12 @@ namespace Semaforo
             jessica.agregarBebida(pinta);
             jessica.agregarBebida(pinta);
 
+            Barra barra = new Barra();
+            barra.conjuntoBebidas.Add(pinta);
+            barra.conjuntoBebidas.Add(fernet);
+            barra.conjuntoBebidas.Add(ronConCola);
+            barra.conjuntoBebidas.Add(daikiri);
+
         }
     }
 }
