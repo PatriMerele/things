@@ -11,7 +11,10 @@ namespace Semaforo
         public string nombre { get; set; }
         public int tiempoBebidaMS { get; set; }
 
-        public Cliente() { }
+        public Cliente()
+        {
+            bebidasDeseadas = new Queue<Bebida>();
+        }
 
         public void agregarBebida(Bebida bebida)
         {

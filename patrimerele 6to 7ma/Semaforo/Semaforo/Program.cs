@@ -97,6 +97,9 @@ namespace Semaforo
             barra.conjuntoBebidas.Add(ronConCola);
             barra.conjuntoBebidas.Add(daikiri);
 
+            barra.clientesAHilo();
+
+            Console.ReadKey();
         }
     }
 }

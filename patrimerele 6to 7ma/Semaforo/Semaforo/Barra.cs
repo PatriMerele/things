@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Semaforo
 {
@@ -14,10 +15,15 @@ namespace Semaforo
         public Queue<Cliente> clientes { get; set; }
         public List<Bebida> conjuntoBebidas { get; set; }
 
-        public Barra() {}
+        public Barra()
+        {
+            conjuntoBebidas = new List<Bebida>();
+        }
 
         public void clienteEnBarra(Cliente cliente)
         {
+            semaforo.WaitOne();
+            Console.WriteLine("{0} esta en barra");
             do
             {
                 if (!stockBebidaPara(cliente))
@@ -40,5 +46,18 @@ namespace Semaforo
         }
 
         public bool stockBebidaPara(Cliente cliente) => cliente.getBebida().stock > 0;
+        public void clientesAHilo()
+        {
+            var tareas = new List<Task>();
+            while (clientes.Count != 0)
+            {
+                var cliente = clientes.Dequeue();
+                tareas.Add(new Task(() => clienteEnBarra(cliente)));
+            }
+            tareas.ForEach(t => t.Start());
+            semaforo.Release(capacidad);
+            Task.WaitAll(tareas.ToArray());
+        }
+
     }
 }
