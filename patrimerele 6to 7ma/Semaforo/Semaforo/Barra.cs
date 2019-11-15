@@ -18,31 +18,38 @@ namespace Semaforo
         public Barra()
         {
             conjuntoBebidas = new List<Bebida>();
+            clientes = new Queue<Cliente>();
         }
 
         public void clienteEnBarra(Cliente cliente)
         {
             semaforo.WaitOne();
-            Console.WriteLine("{0} esta en barra");
+            Console.WriteLine("{0} esta en barra", cliente.nombre);
             do
             {
                 if (!stockBebidaPara(cliente))
                 {
-                    Console.WriteLine("No posee la bebida deseada");
+                    Console.WriteLine($"{cliente.nombre}No posee la bebida deseada");
                     break;
                 }
                 if (!cliente.alcanzaParaBebida())
                 {
-                    Console.WriteLine("No posee la plata necesaria");
+                    Console.WriteLine($"{cliente.nombre} no posee la plata necesaria");
                     break;
                 }
                 Console.WriteLine($"{cliente.nombre} se compro {cliente.getBebida().nombre}");
                 cliente.getBebida().decrementarStock();
                 cliente.tomarBebida();
+                Console.WriteLine($"{cliente.nombre} descansa {cliente.tiempoBebidaMS} MS");
                 Thread.Sleep(cliente.tiempoBebidaMS);
             } while (cliente.quedanBebidasParaTomar);
-            Console.WriteLine("Se fue del bar");
+            Console.WriteLine($"{cliente.nombre} se fue del bar");
             semaforo.Release();
+        }
+
+        public void agregarCliente(Cliente cliente)
+        {
+            clientes.Enqueue(cliente);
         }
 
         public bool stockBebidaPara(Cliente cliente) => cliente.getBebida().stock > 0;

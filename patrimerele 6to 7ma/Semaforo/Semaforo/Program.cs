@@ -97,6 +97,12 @@ namespace Semaforo
             barra.conjuntoBebidas.Add(ronConCola);
             barra.conjuntoBebidas.Add(daikiri);
 
+            barra.agregarCliente(beto);
+            barra.agregarCliente(guido);
+            barra.agregarCliente(adolfo);
+            barra.agregarCliente(ivan);
+            barra.agregarCliente(jessica);
+
             barra.clientesAHilo();
 
             Console.ReadKey();

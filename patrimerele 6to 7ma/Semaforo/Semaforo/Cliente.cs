@@ -24,9 +24,9 @@ namespace Semaforo
         {
             if (getBebida().precio <= dinero)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
         public void tomarBebida()
         {
